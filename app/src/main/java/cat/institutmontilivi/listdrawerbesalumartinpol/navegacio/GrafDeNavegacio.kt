@@ -9,9 +9,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navigation
-import cat.institutmontilivi.navigation3.ui.Pantalles.PantallaContingutCotxe
-import cat.institutmontilivi.navigation3.ui.Pantalles.PantallaContingutGos
-import cat.institutmontilivi.navigation3.ui.Pantalles.PantallaContingutGuerrer
 import cat.institutmontilivi.navigation3.ui.Pantalles.PantallaLlistaDeCotxes
 import cat.institutmontilivi.navigation3.ui.Pantalles.PantallaLlistaDeGossos
 import cat.institutmontilivi.navigation3.ui.Pantalles.PantallaLlistaDeGuerrers
