@@ -113,6 +113,10 @@ fun DrawerApp(
                             popUpTo(controladorDeNavegacio.graph.findStartDestination().id)
                             {
                                 saveState = true
+                                coroutineScope.launch()
+                                {
+                                    estatDrawer.close()
+                                }
                             }
                         }},
                         colors = NavigationDrawerItemDefaults.colors(
