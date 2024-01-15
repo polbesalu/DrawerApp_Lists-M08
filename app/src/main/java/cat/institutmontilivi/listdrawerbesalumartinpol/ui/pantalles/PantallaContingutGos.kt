@@ -2,9 +2,12 @@ package cat.institutmontilivi.listdrawerbesalumartinpol.navegacio
 
 import android.util.Log
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -13,6 +16,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import cat.institutmontilivi.listdrawerbesalumartinpol.R
 import coil.compose.AsyncImage
@@ -29,7 +33,8 @@ fun PantallaContingutGos(id: Int){
             Log.d("BESALU","conté la id correcta del gos -> $id")
 
             if (gos != null) {
-                Text("Nom: " + gos.nom, modifier = Modifier.align(Alignment.CenterHorizontally)
+                Text(
+                    stringResource(R.string.nom) + gos.nom, modifier = Modifier.align(Alignment.CenterHorizontally)
                 )
                 AsyncImage(
                     model = ImageRequest.Builder(LocalContext.current)
@@ -37,15 +42,18 @@ fun PantallaContingutGos(id: Int){
                         .crossfade(true)
                         .build(),
                     placeholder = painterResource(R.drawable.ic_launcher_foreground),
-                    contentDescription = "Gos",
+                    contentDescription = stringResource(R.string.gos),
                     contentScale = ContentScale.Crop,
                     modifier = Modifier
                         .clip(CircleShape)
                         .align(Alignment.CenterHorizontally)
                         .weight(4F)
                 )
-                Text(text = "Id del gos: " + gos.id.toString(), modifier = Modifier.align(Alignment.CenterHorizontally))
-                Text(text = "Puntuació del gos: " + gos.puntuacio.toString(), modifier = Modifier.align(Alignment.CenterHorizontally))
+                Text(text = stringResource(R.string.id_del_gos) + gos.id.toString(), modifier = Modifier.align(Alignment.CenterHorizontally))
+                Spacer(modifier = Modifier.height(7.dp))
+
+                Text(text = stringResource(R.string.puntuaci_del_gos) + gos.puntuacio.toString(), modifier = Modifier.align(Alignment.CenterHorizontally))
+                LinearProgressIndicator(progress = gos.puntuacio.toFloat()/10, modifier = Modifier.align(Alignment.CenterHorizontally))
             }
         }
     }

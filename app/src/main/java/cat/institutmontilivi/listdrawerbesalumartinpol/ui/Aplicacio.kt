@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material.icons.filled.Build
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material3.DrawerState
@@ -76,8 +77,7 @@ fun Aplicacio (content: @Composable () -> Unit = { Text(text ="")})
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DrawerApp(
-    controladorDeNavegacio: NavHostController = rememberNavController()
-    ,
+    controladorDeNavegacio: NavHostController = rememberNavController(),
     estatDrawer: DrawerState = rememberDrawerState(initialValue = DrawerValue.Closed),
     rutaActual: String,
     coroutineScope: CoroutineScope = rememberCoroutineScope()
@@ -105,7 +105,7 @@ fun DrawerApp(
                     NavigationDrawerItem(
                         label = {(it.titol)},
                         icon = { Icon(imageVector = it.icona, contentDescription = null,
-                            tint = MaterialTheme.colorScheme.secondary)
+                            tint = MaterialTheme.colorScheme.onSecondaryContainer)
                         },
                         selected =  false,
                         onClick = { controladorDeNavegacio.navigate(it.rutaPrevia)
@@ -125,7 +125,7 @@ fun DrawerApp(
                             selectedTextColor = MaterialTheme.colorScheme.onTertiaryContainer,
                             selectedBadgeColor = MaterialTheme.colorScheme.error
                         ),
-                        badge = { Icon(imageVector = Icons.Default.Build, contentDescription = "") },
+                        badge = { Icon(imageVector = Icons.Default.ArrowDropDown, contentDescription = "") },
                         shape = ShapeDefaults.ExtraSmall
                     )
                 }

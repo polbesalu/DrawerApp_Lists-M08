@@ -2,6 +2,8 @@ package cat.institutmontilivi.listdrawerbesalumartinpol.navegacio
 
 import androidx.annotation.StringRes
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.material.icons.filled.Build
 import androidx.compose.material.icons.filled.Call
 import androidx.compose.material.icons.filled.Home
@@ -15,11 +17,13 @@ import cat.institutmontilivi.listdrawerbesalumartinpol.R
 enum class  CategoriaDeNavegacio(
     val rutaPrevia: String,
     val icona: ImageVector,
-    @StringRes val titol: Int
+    val titol: String
 ){
-    CategoriaGossos("CategoriaGossos", Icons.Default.Home, R.string.catGos),
-    CategoriaCotxes("CategoriaCotxes", Icons.Default.Call, (R.string.catCotxe)),
-    CategoriaGuerrers("CategoriaGuerrers", Icons.Default.Build, (R.string.catGuerrer))
+    CategoriaGossos("CategoriaGossos", Icons.Default.Home, "CategoriaGossos"),
+    CategoriaCotxes("CategoriaCotxes", Icons.Default.Call, "CategoriaCotxes"),
+    CategoriaGuerrers("CategoriaGuerrers", Icons.Default.Build, "CategoriaGuerrers"),
+    CategoriaExtra1("CategoriaExtra1", Icons.Default.ArrowForward, "CategoriaExtra1"),
+    CategoriaExtra2("CategoriaExtra2", Icons.Default.Add, "CategoriaExtra2"),
 }
 
 sealed class Destinacio(
@@ -41,13 +45,15 @@ sealed class Destinacio(
     object LlistaCotxes: Destinacio(CategoriaDeNavegacio.CategoriaCotxes.rutaPrevia + "/CategoriaCotxes")
     object LlistaGuerrers: Destinacio(CategoriaDeNavegacio.CategoriaGuerrers.rutaPrevia + "/CategoriaGuerrers")
 
-    object ContingutGos:Destinacio(CategoriaDeNavegacio.CategoriaGossos.rutaPrevia + "/CategoriaGossos", listOf(ArgumentDeNavegacio.GossosContent)){
+    object Extra1: Destinacio(CategoriaDeNavegacio.CategoriaExtra1.rutaPrevia + "/CategoriaExtra1")
+    object Extra2: Destinacio(CategoriaDeNavegacio.CategoriaExtra2.rutaPrevia + "/CategoriaExtra2")
+    object ContingutGos:Destinacio(CategoriaDeNavegacio.CategoriaGossos.rutaPrevia + "/ContingutGossos", listOf(ArgumentDeNavegacio.GossosContent)){
         fun CreaRutaAmbArguments (idGos:Int) = "$rutaBase/$idGos"
     }
-    object ContingutCotxe:Destinacio(CategoriaDeNavegacio.CategoriaCotxes.rutaPrevia + "/CategoriaCotxes", listOf(ArgumentDeNavegacio.CotxeContent)){
+    object ContingutCotxe:Destinacio(CategoriaDeNavegacio.CategoriaCotxes.rutaPrevia + "/ContingutCotxes", listOf(ArgumentDeNavegacio.CotxeContent)){
         fun CreaRutaAmbArguments (idCotxe:Int) = "$rutaBase/$idCotxe"
     }
-    object ContingutGuerrer:Destinacio(CategoriaDeNavegacio.CategoriaGuerrers.rutaPrevia + "/CategoriaGuerrers", listOf(ArgumentDeNavegacio.GuerrerContent)){
+    object ContingutGuerrer:Destinacio(CategoriaDeNavegacio.CategoriaGuerrers.rutaPrevia + "/ContingutGuerrers", listOf(ArgumentDeNavegacio.GuerrerContent)){
         fun CreaRutaAmbArguments (idGuerrer:Int) = "$rutaBase/$idGuerrer"
     }
 }
@@ -62,6 +68,6 @@ enum class ArgumentDeNavegacio (
     GuerrerContent("GuerrerContent", NavType.IntType);
 
     fun toNavArgument () : NamedNavArgument{
-        return navArgument(clau){tipus}
+        return navArgument(clau){type = tipus}
     }
 }
