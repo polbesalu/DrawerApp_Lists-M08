@@ -12,8 +12,8 @@ import androidx.navigation.navigation
 import cat.institutmontilivi.navigation3.ui.Pantalles.PantallaLlistaDeCotxes
 import cat.institutmontilivi.navigation3.ui.Pantalles.PantallaLlistaDeGossos
 import cat.institutmontilivi.navigation3.ui.Pantalles.PantallaLlistaDeGuerrers
-import cat.institutmontilivi.navigation3.ui.Pantalles.texte
-import cat.institutmontilivi.navigation3.ui.Pantalles.texte2
+import cat.institutmontilivi.navigation3.ui.Pantalles.Texte
+import cat.institutmontilivi.navigation3.ui.Pantalles.Texte2
 
 @Composable
 fun GrafDeNavegacio(controladorDeNavegacio: NavHostController = rememberNavController(),
@@ -41,14 +41,14 @@ fun GrafDeNavegacio(controladorDeNavegacio: NavHostController = rememberNavContr
         {
             composable(route = Destinacio.Extra1.rutaGenerica)
             {
-                texte()
+                Texte()
             }
         }
         navigation(startDestination = Destinacio.Extra2.rutaBase, route = CategoriaDeNavegacio.CategoriaExtra2.rutaPrevia)
         {
             composable(route = Destinacio.Extra2.rutaGenerica)
             {
-                texte2()
+                Texte2()
             }
         }
         navigation(startDestination = Destinacio.LlistaCotxes.rutaBase,
