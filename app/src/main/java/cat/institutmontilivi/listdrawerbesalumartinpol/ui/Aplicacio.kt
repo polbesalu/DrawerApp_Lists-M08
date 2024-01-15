@@ -103,7 +103,7 @@ fun DrawerApp(
                 Spacer(modifier = Modifier.weight(1F))
                 CategoriaDeNavegacio.values().forEach {
                     NavigationDrawerItem(
-                        label = {(it.titol)},
+                        label = {Text(it.titol)},
                         icon = { Icon(imageVector = it.icona, contentDescription = null,
                             tint = MaterialTheme.colorScheme.onSecondaryContainer)
                         },

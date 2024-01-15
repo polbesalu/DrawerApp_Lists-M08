@@ -19,11 +19,11 @@ enum class  CategoriaDeNavegacio(
     val icona: ImageVector,
     val titol: String
 ){
-    CategoriaGossos("CategoriaGossos", Icons.Default.Home, "CategoriaGossos"),
-    CategoriaCotxes("CategoriaCotxes", Icons.Default.Call, "CategoriaCotxes"),
-    CategoriaGuerrers("CategoriaGuerrers", Icons.Default.Build, "CategoriaGuerrers"),
-    CategoriaExtra1("CategoriaExtra1", Icons.Default.ArrowForward, "CategoriaExtra1"),
-    CategoriaExtra2("CategoriaExtra2", Icons.Default.Add, "CategoriaExtra2"),
+    CategoriaGossos("CategoriaGossos", Icons.Default.Home, "Categoria Gossos"),
+    CategoriaCotxes("CategoriaCotxes", Icons.Default.Call, "Categoria Cotxes"),
+    CategoriaGuerrers("CategoriaGuerrers", Icons.Default.Build, "Categoria Guerrers"),
+    CategoriaExtra1("CategoriaExtra1", Icons.Default.ArrowForward, "Categoria Extra1"),
+    CategoriaExtra2("CategoriaExtra2", Icons.Default.Add, "Categoria Extra2"),
 }
 
 sealed class Destinacio(
